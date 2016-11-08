@@ -1,10 +1,7 @@
-const config = require('./config');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const myUser = config.my_user;
-const myKey = config.my_key;
-const url = "mongodb://" + myUser + ":" + myKey + "@ds049456.mlab.com:49456/plaid-todolist";
+const url = "mongodb://yuyao17:kabakebohoa123@ds049456.mlab.com:49456/plaid-todolist";
 const mongo = require("mongodb").MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 var db;
