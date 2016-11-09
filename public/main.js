@@ -14,7 +14,7 @@ $(function() {
     });
   });
 
-  $('div[class="list"]').each(function(index, item){      
+  $('div[class="list"]').each(function(index, item){
     var self = $(this);
     $.getJSON(totalURL, function(data){
       if (data[index].checked === "true") {
@@ -27,6 +27,71 @@ $(function() {
       }
     })
   })
+
+  $('div[class="list"]').each(function(index, item){
+    var self = $(this);
+    $.getJSON(totalURL, function(data){
+      if (data[index].importance === "high") {
+        self.css("border-left","15px solid orange")
+      }
+      else if (data[index].importance === "medium"){
+        self.css("border-left","15px solid yellow")
+      }
+      else if (data[index].importance === "low") {
+        self.css("border-left","15px solid green")
+      }
+    })
+  })
+
+  $("#high").on("click", function(){
+    $('div[class="list"]').each(function(index, item){
+      var self = $(this);
+      $.getJSON(totalURL, function(data){
+        if (data[index].importance !== "high") {
+          self.css("display","none")
+        }
+        else if (data[index].importance === "high") {
+          self.css("display","")
+        }
+      })
+    })
+  })
+
+  $("#medium").on("click", function(){
+    $('div[class="list"]').each(function(index, item){
+      var self = $(this);
+      $.getJSON(totalURL, function(data){
+        if (data[index].importance !== "medium") {
+          self.css("display","none")
+        }
+        else if (data[index].importance === "medium") {
+          self.css("display","")
+        }
+      })
+    })
+  })
+
+  $("#low").on("click", function(){
+    $('div[class="list"]').each(function(index, item){
+      var self = $(this);
+      $.getJSON(totalURL, function(data){
+        if (data[index].importance !== "low") {
+          self.css("display","none")
+        }
+        else if (data[index].importance === "low") {
+          self.css("display","")
+        }
+      })
+    })
+  })
+
+  $("#all").on("click", function(){
+    $('div[class="list"]').each(function(index, item){
+      var self = $(this);
+      self.css("display","");
+    })
+  })
+
   $(".delete").on("click", function() {
     fetch('add', {
       method: 'delete',

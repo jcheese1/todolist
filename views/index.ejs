@@ -12,11 +12,22 @@
   <form action="/add" method="POST">
   <input type="text" placeholder="Add task..." name="task" />
   <input type="submit" style="position: absolute; left: -9999px"/>
-  <input type="radio" name="checked" value="false" checked style="display: none">
+  <input type="radio" name="checked" value="false" checked style="display: none"><br>
+  <input type="radio" style="margin-top: 10px"name="importance" value="high" />High
+  <input type="radio" name="importance" value="medium" checked/>Medium
+  <input type="radio" name="importance" value="low" />Low
   </form>
 
+<div id="importance-container">
+  <button id="all">All</button>
+  <button id="high">High</button>
+  <button id="medium">Medium</button>
+  <button id="low">Low</button>
+</div>
+
+
 <div class="lists">
-  <% for(var i=0; i<lists.length; i++) {%>   <!-- first one is omitted out -->
+  <% for(var i=0; i<lists.length; i++) {%>
     <div class="list">
       <input type="checkbox" class="strikethrough" value="first_checkbox"><span class="text"><%=lists[i].task%><i class="fa fa-trash-o delete" aria-hidden="true"></i>
       <p style="display: none"><%=lists[i]._id%></p>
