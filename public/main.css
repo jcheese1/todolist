@@ -53,5 +53,23 @@ i:hover {
 
 #importance-container {
   text-align:center;
-  margin-top:20px;
+  margin-top:40px;
+}
+#all {
+  background-color: grey;
+  border-radius: 4px;
+}
+#high {
+  background-color: orange;
+  border-radius: 4px;
+}
+
+#medium {
+  background-color: yellow;
+  border-radius: 4px;
+}
+
+#low {
+  background-color: green;
+  border-radius: 4px;
 }
