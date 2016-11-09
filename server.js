@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const url = "mongodb://yuyao17:kabakebohoa123@ds049456.mlab.com:49456/plaid-todolist";
+const url = "mongodb://yuyao17:asdfjkl;@ds049456.mlab.com:49456/plaid-todolist";
 const mongo = require("mongodb").MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 var db;
@@ -19,7 +19,7 @@ mongo.connect(url, function(err, database){
     return console.log(err);
   }
   db = database
-  app.listen(3000, () => {
+  app.listen(process.env.PORT || 3000, () => {
     console.log('Todo-list active on port 3000!')
   })
 })
